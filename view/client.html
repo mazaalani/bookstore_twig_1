@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Les client</title>
+        <link type="text/css" href="/20602/Seance18/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1> {{ action }} un client</h1>
+    {% if errors is defined %}
+     <ul>
+      {% for error in errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div>
+      {% if client.clientId is defined %}
+        <form action="/20602/Seance18/client/update" method="post">
+        <input type="hidden" name="clientId" value=" {{ client.clientId }}">
+      {% else %}
+        <form action="/20602/Seance18/client/insert" method="post">
+      {% endif %}
+
+
+        <p><input type="text" name="clientName" maxlength="45" placeholder="Nom" value="{{client.clientName}}"></p>
+        <p><input type="text" name="clientAddress" maxlength="45" placeholder="Adresse" value="{{client.clientAddress}}"></p>
+        <p><input type="email" name="clientEmail" maxlength="45" placeholder="Courriel" value="{{client.clientEmail}}"></p>
+        <p><input type="text" name="clientPhone" maxlength="20" placeholder="Phone" value="{{client.clientPhone}}"></p>
+        <p>
+          <select name="clientCityId">
+            <option value="">Select City</option>
+            {% for city in cities %}
+            <option value="{{city.cityId }}" {% if city.cityId == client.clientCityId %} selected {% endif %} >{{city.cityName}}</option>
+            {% endfor %}
+          </select>
+        </p>
+        <p><input type="submit" value="{{ action }}"</p>
+        {% if client.clientId is defined %}
+        <p><input type="submit" name="delete" value="Effacer"></p>
+        {% endif %}
+      </form>
+    </div>
+  </body>
+  </html>

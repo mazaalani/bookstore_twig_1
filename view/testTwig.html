@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+        <link type="text/css" href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+      <h1>Home TWIG</h1>
+            {{ variableTest }}<br>
+            {{ variable2 }}<br>
+            {{ variable3 }}<br>
+
+            {% filter upper %}
+              je vais être écrit en majuscule
+            {% endfilter %}
+            
+      <p><a href="client"> Saisir un client</a></p>
+      <p><a href="client/list">Liste de clients</a></p>
+  </body>
+</html>
