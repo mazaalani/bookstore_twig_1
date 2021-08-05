@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Liste de clients</title>
-        <link type="text/css" href="../css/style.css" rel="stylesheet">
+    <link type="text/css" href="../styles/main.css" rel="stylesheet" />
   </head>
   <body>
-    <ul>
-      {% for client in clients %}
-      <button name="client_id" href='selectClient/{{client.clientId}}'>{{client.clientName}}</a></li>
-      {% endfor %}
-    
-    </uL>
-
+    {% for client in clients %}
+    <a name="client_id" href="selectClient/{{client.client_id}}"
+      >{{client.client_nom client.client_prenom}}</a
+    >
+    {% endfor %}
   </body>
 </html>

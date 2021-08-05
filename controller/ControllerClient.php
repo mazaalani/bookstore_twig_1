@@ -9,16 +9,6 @@ class ControllerClient{
 
  public function index(){
 
-    $city = new ModelCity;
-    $selectCities = $city->select("cityName", "ASC");
-
-    return Twig::render('client.html', ['action' => 'Saisir',
-                                          'cities' => $selectCities
-                                        ]);
- }
-
- public function list(){
-
    $client = new ModelClient;
    $select = $client->select();
 
